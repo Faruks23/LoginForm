@@ -11,11 +11,14 @@ import {
   CheckboxLabel,
   Label,
   LoginButton,
+  Terms,
 } from "../Style";
+import { Link } from "react-router-dom";
+import SignUpForm from "../SignUpForm/SignUpForm";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
-
+ const [ToggleForm, setToggleForm] = useState(false);
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -24,41 +27,58 @@ const LoginForm = () => {
     // Implement your login logic here
   };
 
+  const handleToggleForm = () => { 
+  setToggleForm(true)
+
+  }
+
   return (
     <Container>
       <Main>
         {/* From image */}
         <FormImgContainer>
-        <FromImage src={FormImg} alt="From image"></FromImage>
-          
-       </FormImgContainer>
-
-
-
+          <FromImage src={FormImg} alt="From image"></FromImage>
+        </FormImgContainer>
 
         {/* Form container */}
-        <FormContainer>
-          <LoginFormTitle>Login</LoginFormTitle>
-          <Label>Login ID</Label>
-          <LoginFormInput placeholder="Login ID" />
-          <Label>Password</Label>
-          <PasswordContainer>
-            <LoginFormInput
-              type={showPassword ? "password" : "text"}
-              placeholder="Password"
-            />
-            <PasswordVisibilityIcon onClick={handlePasswordVisibility}>
-              {showPassword ? "👁️" : "👁️"}
-            </PasswordVisibilityIcon>
-          </PasswordContainer>
-          <CheckboxLabel>
-            <input type="checkbox" /> Remember me
-          </CheckboxLabel>
-          <CheckboxLabel>
-            <input type="checkbox" /> Agree to terms and conditions
-          </CheckboxLabel>
-          <LoginButton onClick={handleLogin}>Login</LoginButton>
-        </FormContainer>
+        {ToggleForm ? (
+          <>
+            <SignUpForm></SignUpForm>
+          </>
+        ) : (
+          <>
+            <FormContainer>
+              <LoginFormTitle>Login</LoginFormTitle>
+              <Label>Login ID</Label>
+              <LoginFormInput placeholder="Login ID" />
+              <Label>Password</Label>
+              <PasswordContainer>
+                <LoginFormInput
+                  type={showPassword ? "password" : "text"}
+                  placeholder="Password"
+                />
+                <PasswordVisibilityIcon onClick={handlePasswordVisibility}>
+                  {showPassword ? "👁️" : "👁️"}
+                </PasswordVisibilityIcon>
+              </PasswordContainer>
+              <ChangPass>Change Password</ChangPass>
+              <CheckboxLabel>
+                <input type="checkbox" /> Remember me
+              </CheckboxLabel>
+              <CheckboxLabel>
+                <input type="checkbox" /> Agree to{" "}
+                <Terms> Terms & conditions</Terms>
+              </CheckboxLabel>
+              <LoginButton onClick={handleLogin}>Login</LoginButton>
+              <Register>
+                Don’t have an account?{" "}
+               
+                  <Terms onClick={handleToggleForm}> Register Here</Terms>
+              
+              </Register>
+            </FormContainer>
+          </>
+        )}
       </Main>
     </Container>
   );
@@ -100,6 +120,33 @@ const Container = styled.section`
   display: flex;
   justify-content: center;
   justify-items: center;
+
+`;
+
+const ChangPass = styled.p`
+  color: var(--Secondary---1, #f78719);
+  text-align: right;
+  /* Body Light - Regular - 18 */
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  cursor: pointer;
+  line-height: 50%; /* 19.8px */
+   
+`;
+
+
+
+const Register = styled.p`
+  color: #04072f;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  margin-top:25px;
 
 `;
 

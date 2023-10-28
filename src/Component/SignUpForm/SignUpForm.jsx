@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
  import {
    FormContainer,
@@ -9,9 +9,24 @@ import styled from 'styled-components';
    CheckboxLabel,
    Label,
    LoginButton,
+   Terms,
  } from "../Style";
 
 const SignUpForm = () => {
+   const [showPassword, setShowPassword] = useState(false);
+   const [ToggleForm,setToggleForm] = useState(false);
+   const handlePasswordVisibility = () => {
+     setShowPassword(!showPassword);
+   };
+
+
+  const handleSignUp = () => { 
+
+
+  }
+
+
+
   return (
     <FormContainer>
       <LoginFormTitle>SignUp</LoginFormTitle>
@@ -27,8 +42,6 @@ const SignUpForm = () => {
         <PasswordVisibilityIcon onClick={handlePasswordVisibility}>
           {showPassword ? "👁️" : "👁️"}
         </PasswordVisibilityIcon>
-
-
       </PasswordContainer>
       <PasswordContainer>
         <LoginFormInput
@@ -38,17 +51,12 @@ const SignUpForm = () => {
         <PasswordVisibilityIcon onClick={handlePasswordVisibility}>
           {showPassword ? "👁️" : "👁️"}
         </PasswordVisibilityIcon>
-
-
       </PasswordContainer>
 
       <CheckboxLabel>
-        <input type="checkbox" /> Remember me
+        <input type="checkbox" /> Agree to <Terms> Terms & conditions</Terms>
       </CheckboxLabel>
-      <CheckboxLabel>
-        <input type="checkbox" /> Agree to terms and conditions
-      </CheckboxLabel>
-      <LoginButton onClick={handleLogin}>Login</LoginButton>
+      <LoginButton onClick={handleSignUp}>Submit</LoginButton>
     </FormContainer>
   );
 };
