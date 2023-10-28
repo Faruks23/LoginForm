@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   width: 100%;
   max-width: 550px;
   text-align: center;
