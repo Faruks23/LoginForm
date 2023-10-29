@@ -76,7 +76,7 @@ const LoginForm = () => {
             <FormContainer onSubmit={handleLogin}>
               <LoginFormTitle>Login</LoginFormTitle>
               <Label>Login ID</Label>
-              <LoginFormInput placeholder="Login ID" ref={EmailRef} />
+              <LoginFormInput placeholder="Login ID" required ref={EmailRef} />
               <Label>Password</Label>
 
               <PasswordContainer>
@@ -84,6 +84,7 @@ const LoginForm = () => {
                   type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     ref={PasswordRef}
+                    required
                 />
                 <PasswordVisibilityIcon onClick={handlePasswordVisibility}>
                   {!showPassword ? (

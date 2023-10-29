@@ -44,20 +44,15 @@ const SignUpForm = ({
     const Password = PasswordRef.current.value;
     const confirmPassword = ConfirmPasswordRef.current.value;
 
-    //     // reexpression
-    //  if (password !== ConfirmPassword) {
-    //    toast.error("Please enter right password");
-    //    return;
-    //  } else if (password.length < 6) {
-    //    toast.error("password must be Greater than 6 characters");
-    //    return;
-    //  } else if (!/[A-Z]/.test(password)) {
-    //    toast.error("Error: password must  have a capital letter.");
-    //    return;
-    //  } else if (!/[!@#$%^&*()-=_+|;':",.<>/?]/.test(password)) {
-    //    toast.error("Error: password must  have a special character.");
-    //    return;
-    //  }
+        // reexpression
+    if (Password !== confirmPassword) {
+      alert("Please enter right password");
+      return;
+    } else if (Password.length < 6) {
+     alert("password must be Greater than 6 characters");
+      return;
+    }
+   
 
     // create new user with new password and email
     if (Email && Password) {
@@ -82,8 +77,9 @@ const SignUpForm = ({
       <LoginFormInput
         placeholder="Enter Your Email"
         type="email"
-        // onChange={(e) =>setEmail(e.target.value) }
+
         ref={EmailRef}
+        required
       />
       <Label>Password</Label>
 
