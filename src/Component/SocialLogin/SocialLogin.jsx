@@ -24,9 +24,9 @@ const SocialLogin = () => {
 
   return (
     <GoogleBtn>
-      <button onClick={handleGoogleLogin} >
+      <p onClick={handleGoogleLogin} >
         <FcGoogle className="icon"></FcGoogle>
-      </button>
+      </p>
     </GoogleBtn>
   );
 };

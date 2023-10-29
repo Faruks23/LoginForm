@@ -124,7 +124,7 @@ const LoginForm = () => {
                 <SocialLogin></SocialLogin>
               <Register>
                 Don’t have an account?{" "}
-                <Terms onClick={handleToggleForm}> Register Here</Terms>
+                <Terms  onClick={handleToggleForm}> Register Here</Terms>
               </Register>
             </FormContainer>
           </>
