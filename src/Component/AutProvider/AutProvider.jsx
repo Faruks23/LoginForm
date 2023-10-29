@@ -26,13 +26,7 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // update user with  name photoUrl
-  const UpdateUser = (name, photoURL) => {
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photoURL,
-    });
-  };
+
 
   // sign in with google account
   const SignInWithGoogle = () => {
@@ -66,7 +60,6 @@ const AuthProvider = ({ children }) => {
     CreateUser,
     loading,
     user,
-    UpdateUser,
     LogOutUser,
     SignInWithGoogle,
     SignInWithEmailPassword,

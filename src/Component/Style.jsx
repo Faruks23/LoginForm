@@ -87,3 +87,16 @@ export const Terms = styled.span`
   text-decoration-line: underline;
   margin-left: 2px;
 `;
+
+export const Register = styled.p`
+  color: #04072f;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  margin-top: 25px;
+  cursor: pointer;
+`;
+
